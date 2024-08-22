@@ -1,0 +1,63 @@
+/* COLORES PALETA  
+#azul de fondo #191F2F
+#rosa #DA7BC9
+#naranja bordes #FCCC90
+#verde #A2CC98
+*/
+#header {
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    /*background-color: #90A955;*/
+    border-bottom: 2px solid #FCCC90;
+}
+#nav-box {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#caja-img-logo {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#caja-img-logo img {
+    margin: 0.1rem;
+    max-width: 100%; /* La imagen no será más ancha que el contenedor */
+    max-height: 100%; /* La imagen no será más alta que el contenedor */
+    width: 11rem; /* Mantiene la proporción de la imagen */
+}
+.hover-image {
+    transition: transform 0.3s ease; /* Transición suave */
+  }
+  
+  .hover-image:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al hacer hover */
+  }
+
+#botonera {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    height: 100%;
+    align-items: center;
+}
+#botonera button {
+    color: #FCCC90;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #191F2F;
+  }
+  #botonera button:hover {
+    border: 2px solid #FCCC90;
+    color: #DA7BC9;
+  }

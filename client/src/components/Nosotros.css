@@ -1,0 +1,86 @@
+/* COLORES PALETA  
+#azul de fondo #191F2F
+#rosa #DA7BC9
+#naranja bordes #FCCC90
+#verde #A2CC98
+*/
+#box-Noso {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+}
+#box-title-losMiddlewares{
+    width: 80%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+#box-title-losMiddlewares h1 {
+    color: #A2CC98;
+    font-size: 2rem;
+    margin: 0;
+}
+#box-title-losMiddlewares img {
+    width: 10rem;
+    background-color: white;
+    border-radius: 5px;
+    opacity: 0.7;
+}
+
+
+#box-developers {
+    height: auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.dev {
+    width: 100%;
+    height: 7rem;
+    display: flex;
+    margin-bottom: 1.1rem;
+}
+.dev-pic {
+    height: 100%;
+    width: 13%;
+}
+.dev-pic img {
+    width: 100%;
+    border-radius: 50%;
+}
+.dev-text {
+    height: 100%;
+    width: 87%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.dev-text h2 {
+    color: #A2CC98;
+    padding-left: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+.dev-text h4 {
+    color: #DA7BC9;
+    padding-left: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+}
+.dev-text p {
+    color: #DA7BC9;
+    padding-left: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+}

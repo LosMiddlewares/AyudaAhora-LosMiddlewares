@@ -1,0 +1,80 @@
+/* COLORES PALETA  
+#azul de fondo #191F2F
+#rosa #DA7BC9
+#naranja bordes #FCCC90
+#verde #A2CC98
+*/
+#box-Info {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35rem;
+}
+#caja-izq {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#img-cajaizq {
+    width: 100%;
+}
+#caja-der {
+    height: 100%;
+    width: 60%;
+    /*border: 1px solid #FCCC90;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+#caja-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#caja-texto h1 {
+    color: #A2CC98;
+    font-size: 3rem;
+    text-align: center;
+}
+#caja-productos {
+    height: auto;
+}
+#caja-productos p {
+    color: #DA7BC9;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.productos {
+    height: 6rem;
+    width: 100%;
+    display: flex;
+}
+.icono-producto {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.texto-producto {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.texto-producto h2 {
+    font-size: 2.5rem;
+    color: #FCCC90;
+}
+.icon {
+    font-size: 60px;  /* Adjust as needed */
+    color: #DA7BC9; /* Optional color */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}

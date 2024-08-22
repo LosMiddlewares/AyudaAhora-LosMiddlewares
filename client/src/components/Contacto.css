@@ -1,0 +1,59 @@
+/* COLORES PALETA  
+#azul de fondo #191F2F
+#rosa #DA7BC9
+#naranja bordes #FCCC90
+#verde #A2CC98
+*/
+#box-Con {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 35rem;
+}
+#box-Con h2 {
+    color: #A2CC98;
+    font-size: 2rem;
+}
+#box-Con input {
+    width: 30rem;
+    height: 3rem;
+    border: 1px solid #FCCC90;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+#input-consulta {
+    width: 40rem;
+    height: 10rem;
+    border: 1px solid #FCCC90;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    margin-top: 0.7rem;
+}
+#box-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: auto;
+    width: 40rem;
+}
+#box-textarea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    height: auto;
+    width: 41rem;
+}
+#box-textarea button {
+    background-color: #FCCC90;
+    color: black;
+    border: 1px solid #FCCC90;
+}
+#box-textarea button:hover {
+    background-color: #191F2F;
+    color: #DA7BC9;
+    border: 1px solid #FCCC90;
+}
