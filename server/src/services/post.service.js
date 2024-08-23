@@ -22,18 +22,13 @@ export const postService = {
         }
     },
 
-    async createPost(postData, path) {
+    async createPost(postData, path, userId) {
         try {
-            const { title, description, goal_amount } = postData;
-
             const newPost = await Post.create({
-                title,
-                description,
-                goal_amount,
-                current_amount: 0,
-                image: path
+                ...postData,
+                image: path,
+                user_id: userId
             });
-
             return newPost;
         } catch (error) {
             throw new Error(`Error al crear el post: ${error.message}`);

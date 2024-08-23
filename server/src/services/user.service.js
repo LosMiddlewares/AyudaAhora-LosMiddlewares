@@ -25,7 +25,9 @@ export const userService = {
 
     async createUser(user) {
         try {
+            console.log('Password before hashing:', user.password);
             user.password = await hashPassword(user.password);
+            console.log('Password after hashing:', user.password);
             return await Users.create(user);
         } catch (error) {
             throw new Error(`error al registrar usuario: ${error.message}`);

@@ -21,5 +21,10 @@ export const userSchema = [
         .notEmpty().withMessage("La contraseña es obligatoria")
         .isLength({ min: 8 }).withMessage("La contraseña debe tener al menos 8 caracteres")
         .isString().withMessage('La contraseña no es válida')
-        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/).withMessage("La contraseña debe tener al menos una letra minúscula, una letra mayúscula y un número")
+        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/).withMessage("La contraseña debe tener al menos una letra minúscula, una letra mayúscula y un número"),
+    body('fecha_nac')
+        .exists()
+        .notEmpty().withMessage("La fecha de nacimiento es obligatoria")
+        .isDate().withMessage("La fecha de nacimiento no es válida"),
+
 ]

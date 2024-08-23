@@ -25,12 +25,14 @@ export const postController = {
         try {
             const postData = req.body;
             const path = req.file ? req.file.path : null;
-            const newPost = await postService.createPost(postData, path);
+            const newPost = await postService.createPost(postData, path, req.user.id);
+            console.log(req.userId);
             res.status(201).json({ message: "Post creado", newPost });
         } catch (error) {
             handleError(error, res, "Error al crear post");
         }
     },
+    
 
     async updatePost(req, res) {
         try {
