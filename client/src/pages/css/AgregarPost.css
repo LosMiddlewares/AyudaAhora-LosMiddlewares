@@ -1,0 +1,37 @@
+/* COLORES PALETA  
+#azul de fondo #191F2F
+#rosa #DA7BC9
+#naranja bordes #FCCC90
+#verde #A2CC98
+*/
+
+#box-all-add-post {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #191F2F;
+}
+#box-main-add-post {
+    width: 80%;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-top: 8rem;
+}
+#box-form-add-post {
+    width: 80%;
+    height: 35rem;
+    box-shadow: 0 8px 16px rgba(218, 123, 201, 0.7); 
+    border: 2px solid #DA7BC9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
