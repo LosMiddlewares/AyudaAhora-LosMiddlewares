@@ -2,16 +2,15 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import path from 'path';
-import 'dotenv/config';
 
+import { config } from './src/config/config.js';
 import { connectDataBase } from './src/db/connection.js';
 import { relations } from './src/db/relations.js';
 import { router } from './src/routes/index.routes.js';
 
 const app = express();
 
-const port = process.env.PORT;
+const port = config.PORT;
 
 app.use(express.json());
 app.use(cors());
