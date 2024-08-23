@@ -62,7 +62,7 @@ export const userController = {
             const user = await userService.userLogin(email, password);
             const { id, email: userEmail } = user;
             const token = await createJWT({ id, email: userEmail });
-            res.status(200).json({ token });
+            res.status(200).json({ token, user });
         } catch (error) {
             handleError(error, res, "Error al iniciar sesión");
         };
