@@ -9,7 +9,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 35rem;
+    height: 38rem;
+    margin-bottom: 4rem;
+    margin-top: 0.5rem;
 }
 #caja-izq {
     height: 100%;
@@ -29,7 +31,7 @@
     /*border: 1px solid #FCCC90;*/
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
 }
 #caja-texto {
     display: flex;
