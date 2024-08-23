@@ -42,7 +42,7 @@ function Login() {
 
             <div className="submit-container">
               <button type='submit'>Ingresar</button>
-              <p>Todavía no tenes cuenta? <a href="/">Registrate</a></p>
+              <p>Todavía no tenes cuenta? <a href="/register">Registrate</a></p>
             </div>
             
           </form>

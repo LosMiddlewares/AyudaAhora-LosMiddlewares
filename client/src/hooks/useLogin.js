@@ -40,6 +40,7 @@ export function useLogin() {
                 const data = await res.json();
 
                 localStorage.setItem('token', JSON.stringify(data.token));
+                localStorage.setItem('userId', data.id);
                 localStorage.setItem('user', JSON.stringify(data)); // Guarda el usuario completo
 
                 setUserState({ type: type.LOGIN, payload: { user: data } });

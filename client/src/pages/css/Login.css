@@ -121,8 +121,8 @@ body, html {
     padding: 0.75rem;
     background-color: #191F2F;
     border: 1px solid #FCCC90;
-    border-radius: 8px;
     color: #FCCC90;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
     transition: 0.3s;

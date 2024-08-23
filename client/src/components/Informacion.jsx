@@ -18,7 +18,7 @@ function Informacion() {
                     <p>Valoramos y exponemos tu reputación como Donante. Si donaste mucho, la comunidad no va dudar en ayudarte cuando lo necesites.</p>
                     <div id='box-botones-login'>
                         <Link to="/login"><button>Ingresar</button></Link>
-                        <Link to="/login"><button>Crear cuenta</button></Link>
+                        <Link to="/register"><button>Crear cuenta</button></Link>
                     </div>
                 </div>
             </div>
