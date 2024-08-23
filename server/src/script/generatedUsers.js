@@ -1,5 +1,5 @@
 import { sequelize } from '../db/configDB.js';
-import { Users } from '../models/users.js';
+import { Users } from '../models/Users.js';
 import { Post } from '../models/post.js';
 import { Donation } from '../models/donation.js';
 import { DonationHistory } from '../models/donationHistory.js';
@@ -47,7 +47,14 @@ export const createRandomData = async () => {
       const donor = users[Math.floor(Math.random() * users.length)];
       const post = posts[Math.floor(Math.random() * posts.length)];
       const amount = faker.finance.amount(10, 200, 2);
-      
+
+      // Validar si la donación supera la meta
+      let newAmount = post.current_amount + parseFloat(amount);
+
+      if (newAmount > post.goal_amount) {
+        newAmount = post.goal_amount;
+      }
+
       const donation = await Donation.create({
         donor_id: donor.id,
         post_id: post.id,
@@ -55,7 +62,7 @@ export const createRandomData = async () => {
       });
 
       // Actualiza el monto acumulado en la publicación
-      post.current_amount += parseFloat(amount);
+      post.current_amount = newAmount;
       await post.save();
 
       donations.push(donation);
