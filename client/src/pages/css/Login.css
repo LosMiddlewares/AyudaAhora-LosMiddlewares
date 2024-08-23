@@ -1,0 +1,147 @@
+/* COLORES PALETA  
+#azul de fondo #191F2F
+#rosa #DA7BC9
+#naranja bordes #FCCC90
+#verde #A2CC98
+*/
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+  
+  #contenedor-todo {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #191F2F;
+  }
+  
+  .hover-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-image:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  #caja-login {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: #191F2F;
+    box-shadow: 0 8px 16px rgba(218, 123, 201, 0.7); 
+    border: 2px solid #DA7BC9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Logo */
+  #caja-logo {
+    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+  }
+  
+  #logo {
+    width: 10rem;
+  }
+  
+  #caja-form {
+    width: 100%;
+  }
+  .submit-container {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .submit-container p {
+    color: #FCCC90;
+  }
+  .submit-container a {
+    color: #DA7BC9;
+  }
+
+  .cajita-form {
+    margin-bottom: 1.2rem;
+    width: 100%;
+  }
+  
+  .cajita-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #FCCC90;
+  }
+  
+  .cajita-form input {
+    color: #FCCC90;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #FCCC90;
+    border-radius: 8px;
+    background-color: transparent;
+    box-sizing: border-box;
+  }
+  
+  .cajita-form input::placeholder {
+    color: #686867;
+  }
+  
+  .cajita-form select {
+    width: 100%;
+    padding: 0.60rem;
+    border: 1px solid #565654;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: auto;
+    background-color: transparent;
+  }
+  
+  .cajita-form select::placeholder {
+    background-color: #7b7b7a;
+    color: white;
+  }
+  
+  .cajita-form option {
+    padding: 0.75rem;
+    font-size: auto;
+  }
+  
+  #caja-form button {
+    width: 6rem;
+    padding: 0.75rem;
+    background-color: #191F2F;
+    border: 1px solid #FCCC90;
+    border-radius: 8px;
+    color: #FCCC90;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    box-shadow: 0 8px 16px rgba(252, 204, 144, 0.7);
+
+  }
+  
+  #caja-form button:hover {
+    background-color: #FCCC90;
+    color: #191F2F;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 575px) {
+    #caja-login {
+      padding: 1.5rem;
+    }
+  }

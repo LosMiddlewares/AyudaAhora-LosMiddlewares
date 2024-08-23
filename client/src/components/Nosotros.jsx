@@ -7,7 +7,7 @@ import dani from '../assets/miinor.png'
 
 function Nosotros() {
     return(
-        <div id="box-Noso">
+        <div id="box-Noso" className='animate__animated animate__zoomIn'>
             <div id='box-title-losMiddlewares'>
                 <h1>Nuestros Desarrolladores</h1>
                 <img src={logoipf} alt="" />
