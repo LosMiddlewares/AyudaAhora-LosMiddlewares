@@ -22,31 +22,13 @@ export const postService = {
         }
     },
 
-    async createPost(postData, file) {
+    async createPost(postData, path, userId) {
         try {
-            const { title, description, goal_amount } = postData;
-
-            if (!file) {
-                throw new Error('No se subió ninguna imagen.');
-            }
-            
-            const uploadPath = path.join('public', 'uploads', file.name);
-
-            await new Promise((resolve, reject) => {
-                file.mv(uploadPath, (err) => {
-                    if (err) return reject(err);
-                    resolve();
-                });
-            });
-
             const newPost = await Post.create({
-                title,
-                description,
-                goal_amount,
-                image: file.name,
-                current_amount: 0
+                ...postData,
+                image: path,
+                user_id: userId
             });
-
             return newPost;
         } catch (error) {
             throw new Error(`Error al crear el post: ${error.message}`);

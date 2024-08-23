@@ -26,12 +26,14 @@ export const userController = {
     async createUser(req, res) {
         try {
             const user = req.body;
+            console.log('User object:', user);
             const userCreated = await userService.createUser(user);
             res.status(201).json(userCreated);
         } catch (error) {
             handleError(error, res, "Error al registrar usuario");
-        };
+        }
     },
+    
 
     async deleteUser(req, res) {
         try {

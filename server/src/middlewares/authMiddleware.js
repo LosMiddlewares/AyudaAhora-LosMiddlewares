@@ -3,7 +3,6 @@ import { config } from '../config/config.js';
 
 export const authenticateUser = async (req, res, next) => {
     console.log("middleware ejecutado")
-
     try {
         const authHeader = req.headers.authorization;
 
@@ -12,11 +11,17 @@ export const authenticateUser = async (req, res, next) => {
         }
 
         const token = authHeader.split(' ')[1]; // Extrae el token eliminando el prefijo 'Bearer'
-
-        const { user: userId } = jwt.verify(token, config.SECRET_KEY);
-
-        req.userId = userId; // Adjuntamos el ID del usuario al objeto de solicitud para que esté disponible en los controladores
-        next();
+        if (!token) {
+            return res.status(401).json({ message: "Token inválido o expirado" });
+        }
+        jwt.verify(token, config.SECRET_KEY, (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ message: "Token inválido o expirado" });
+            }
+            req.user = decoded; // guardamos la información del usuario en el objeto `req`
+            console.log(req.user);
+            next();
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal server error' });
