@@ -1,0 +1,100 @@
+/* COLORES PALETA  
+#azul de fondo #191F2F
+#rosa #DA7BC9
+#naranja bordes #FCCC90
+#verde #A2CC98
+*/
+
+
+#box-single-post {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #191F2F;
+}
+#box-main-post-single {
+    width: 60rem;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 6.5rem;
+}
+#post-single-title {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#post-single-title img {
+    border-radius: 50%;
+    width: 3rem;
+    margin-left: 1.5rem;
+}
+#post-single-title h4 {
+    margin-left: 0.8rem;
+    color: #FCCC90;
+    font-size: 1.5rem;
+}
+#post-single-text {
+    width: 100%;
+    height: auto;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #DA7BC9;
+}
+#post-single-text p {
+    text-align: justify;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+}
+#box-img-cash {
+    width: 100%;
+    height: 22rem;
+    display: flex;
+}
+#caja-img-post {
+    width: 50%;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#caja-img-post img {
+    width: 60%;
+    border-radius: 5px;
+}
+#caja-post-meta {
+    width: 50%;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#caja-post-meta h4{
+    font-size: 1.2rem;
+    color: #FCCC90;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#caja-post-meta button{
+    background-color: #191F2F;
+    border: 2px solid #DA7BC9;
+    box-shadow: 0 8px 16px rgba(218, 123, 201, 0.7);
+    color: #DA7BC9;
+    margin-top: 1rem;
+}
+#caja-post-meta button:hover{
+    background-color: #DA7BC9;
+    border: 2px solid #191F2F;
+    box-shadow: 0 8px 16px rgba(218, 123, 201, 0.7);
+    color: #191F2F;
+}
