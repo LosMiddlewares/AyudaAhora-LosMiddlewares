@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { environments } from '../config/environments.js';
 import Swal from 'sweetalert2';
+import { toast } from 'sonner';
 
-export const useRegister = () => {
+export const usePost = () => {
 
     const navigate = useNavigate();
 
@@ -14,20 +15,13 @@ export const useRegister = () => {
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(false);
 
-    const handleNameChange = (e) => setName(e.target.value);
-    const handleLastNameChange = (e) => setLastName(e.target.value);
-    const handleFecha_nac = (e) => setFecha_nac(e.target.value);
-    const handleEmailChange = (e) => setEmail(e.target.value);
-    const handlePasswordChange = (e) => setPassword(e.target.value);
-    const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
+    const handleTitleChange = (e) => setTitle(e.target.value);
+    const handleDescriptionChange = (e) => setDescription(e.target.value);
+    const handleGoal_amount = (e) => setGoal_amount(e.target.value);
+    const handleImageChange = (e) => setImage(e.target.value);
 
-    const handleSubmit = async (e) => {
+    const handleSubmitPost = async (e) => {
         e.preventDefault();
-
-        if (password !== confirmPassword) {
-            setError("Las contraseñas no coinciden");
-            return;
-        }
 
         try {
             // obtenemos token
@@ -37,40 +31,36 @@ export const useRegister = () => {
             // id del usuario
             const userId = localStorage.getItem('userId');
 
-            const res = await fetch(`${environments.API_URL}/abog/editar-perfil/${userId}`, {
-                method: 'PUT',
+            const res = await fetch(`${environments.API_URL}/posts`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    name,
-                    lastName,
-                    phoneNum,
-                    fecha_nac,
-                    email,
-                    password,
+                    title,
+                    description,
+                    goal_amount,
+                    image
                 })
             });
             if (!res.ok) {
                 const errorData = await res.json();
-                setError(errorData.error || "Error al intertar registrarte");
+                setError(errorData.error || "Error al intertar crear Post");
                 Swal.fire({
                     icon: 'error',
-                    text: errorData.error || 'Error al intertar registrarte',
+                    text: errorData.error || 'Error al intertar crear Post',
                 });
             } else {
                 const data = await res.json();
-                
-                localStorage.setItem('user', JSON.stringify(data)); // Guarda el usuario completo
+                localStorage.setItem('post', JSON.stringify(data)); // Guarda el usuario completo
 
                 //dispatch({ type: type.LOGIN, payload: { user: data } });
 
                 setSuccess(true);
-                Swal.fire({
-                    title: 'Ya estás registrado!',
-                    icon: 'success',
-                });
+                toast.success('Post creado', {
+                    duration: 1500
+                })
                 setTimeout(() => {
                     navigate('/home-abog');
                 }, 2500);
@@ -79,21 +69,18 @@ export const useRegister = () => {
         } catch (error) {
             console.error(error);
             setError('Error de conexión con el servidor');
-            Swal.fire({
-                icon: 'error',
-                text: 'Error de conexión con el servidor',
-            });
+            toast.success('Error de conexión con el servidor', {
+                duration: 1500
+            })
         }
     };
 
     return {
-        name, setName: handleNameChange,
-        lastName, setLastName: handleLastNameChange,
-        fecha_nac, setFecha_nac: handleFecha_nac,
-        email, setEmail: handleEmailChange,
-        password, setPassword: handlePasswordChange,
-        confirmPassword, setConfirmPassword: handleConfirmPasswordChange,
+        title, setTitle: handleTitleChange,
+        description, setDescription: handleDescriptionChange,
+        goal_amount, setGoal_amount: handleGoal_amount,
+        image, setImage: handleImageChange,
         error, success,
-        handleSubmit,
+        handleSubmitPost,
     };
 };
