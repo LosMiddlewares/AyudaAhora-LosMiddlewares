@@ -1,4 +1,4 @@
-import { Users } from "../models/users.js";
+import { Users } from "../models/Users.js";
 import { Post } from "../models/post.js";
 import { Donation } from "../models/donation.js";
 import { DonationHistory } from "../models/donationHistory.js";

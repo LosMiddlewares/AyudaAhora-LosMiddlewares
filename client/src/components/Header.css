@@ -11,8 +11,12 @@
     justify-content: center;
     align-items: center;
     justify-content: center;
-    /*background-color: #90A955;*/
+    background-color: #191F2F;
     border-bottom: 2px solid #FCCC90;
+    position: fixed;  /* Hace que el header sea fijo */
+    z-index: 1000;    /* Asegura que el header esté por encima de otros elementos */
+    top: 0;           /* Alinea el header con la parte superior de la pantalla */
+    left: 0;          /* Alinea el header con el borde izquierdo de la pantalla */
 }
 #nav-box {
     width: 80%;

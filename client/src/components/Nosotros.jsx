@@ -7,7 +7,7 @@ import dani from '../assets/miinor.png'
 
 function Nosotros() {
     return(
-        <div id="box-Noso">
+        <div id="box-Noso" className='animate__animated animate__zoomIn'>
             <div id='box-title-losMiddlewares'>
                 <h1>Nuestros Desarrolladores</h1>
                 <img src={logoipf} alt="" />
@@ -40,7 +40,7 @@ function Nosotros() {
                     <div className='dev-text'>
                         <h2>Carlos Fabian Villagra</h2>
                         <h4>BackEnd Developer</h4>
-                        <p>Daniel tiene una experiencia de más de 4 años en el desarrollo de interfaces web modernas y dinámicas. En su rol actual en CreativeCoders, ha trabajado en diversos proyectos que requieren el uso de tecnologías como Vue.js, Nuxt.js y Tailwind CSS.</p>
+                        <p>Fabian tiene una experiencia de más de 4 años en el desarrollo de interfaces web modernas y dinámicas. En su rol actual en CreativeCoders, ha trabajado en diversos proyectos que requieren el uso de tecnologías como Vue.js, Nuxt.js y Tailwind CSS.</p>
                     </div>
                 </div>
             </div>

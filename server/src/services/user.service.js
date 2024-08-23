@@ -1,4 +1,4 @@
-import { Users } from "../models/users.js";
+import { Users } from "../models/Users.js";
 import { hashPassword, comparePassword } from '../utils/hash.js';
 
 export const userService = {

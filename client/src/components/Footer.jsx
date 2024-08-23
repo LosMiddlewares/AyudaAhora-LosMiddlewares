@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 function Footer(){
     return(
-        <div id='caja-footer'>
+        <div id='caja-footer' className='animate__animated animate__fadeInUp'>
             <div id='caja-redes'>
                 <Link ><div className='social-icon'><FaXTwitter /></div></Link>
                 <Link ><div className='social-icon'><IoLogoInstagram /></div></Link>
