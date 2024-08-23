@@ -8,7 +8,7 @@ export const sequelize = new Sequelize(
     config.DB_PASSWORD,
     {
         host: config.DB_HOST,
-        port: config.DB_PORT,
         dialect: config.DB_DIALECT,
+        port: config.DB_PORT,
     },
 );

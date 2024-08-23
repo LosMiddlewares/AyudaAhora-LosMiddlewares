@@ -4,12 +4,16 @@ import { handleError } from "../utils/errorCatch.js";
 export const donationController = {
     async createDonation(req, res) {
         try {
-            const donationData = req.body;
-            const newDonation = await donationService.createDonation(donationData);
+            const post_id = parseInt(req.params.post_id, 10); // Extrae el post_id de los parámetros de la URL
+            const { amount } = req.body; // Obtén la cantidad desde el cuerpo de la solicitud
+            const userId = req.user.id; // Obtén el ID del usuario autenticado
+    
+            // Crea la donación
+            const newDonation = await donationService.createDonation({ post_id, amount }, userId);
             res.status(201).json({ message: "Donación creada", newDonation });
         } catch (error) {
             handleError(error, res, "Error al crear la donación");
-        };
+        }
     },
 
     async getDonations(_req, res) {

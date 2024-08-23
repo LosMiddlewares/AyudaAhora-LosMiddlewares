@@ -3,7 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import getFileDirName from './src/utils/fileDirName.js';
-import { createRandomData } from './src/script/generatedUsers.js';
+// import { createRandomData } from './src/script/generatedUsers.js';
 import { config } from './src/config/config.js';
 import { connectDataBase } from './src/db/connection.js';
 import { relations } from './src/db/relations.js';

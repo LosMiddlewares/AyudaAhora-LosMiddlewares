@@ -4,9 +4,10 @@ import { DonationHistory } from "../models/donationHistory.js";
 
 export const donationService = {
 
-    async createDonation(donationData) {
+    async createDonation(donationData, userId) {
         try {
-            const { donor_id, post_id, amount } = donationData;
+            // const { donor_id, post_id, amount } = donationData;
+            const { post_id, amount } = donationData;
 
             const post = await Post.findByPk(post_id);
             if (!post) {
@@ -15,16 +16,14 @@ export const donationService = {
 
             // Crea la donación
             const donation = await Donation.create({
-                donor_id,
+                donor_id: userId,
                 post_id,
                 amount
             });
 
-            // Actualiza la cantidad acumulada de la publicación
             post.current_amount += parseFloat(amount);
             await post.save();
 
-            // Crea el historial de donación
             await DonationHistory.create({
                 donation_id: donation.id,
                 type: 'donated'

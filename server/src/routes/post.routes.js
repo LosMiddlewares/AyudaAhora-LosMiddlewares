@@ -10,7 +10,7 @@ postRouter.get('/', postController.getPosts);
 
 postRouter.get('/:id', postController.getPostById);
 
-postRouter.post('/', authenticateUser, upload.single('image'), postController.createPost);
+postRouter.post('/', authenticateUser, authenticateUser, upload.single('image'), postController.createPost);
 
 postRouter.put('/:id', postController.updatePost);
 
