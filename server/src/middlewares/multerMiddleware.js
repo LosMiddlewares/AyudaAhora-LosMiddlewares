@@ -1,3 +1,5 @@
+import multer from 'multer';
+import path from 'node:path'
 
 const storage = multer.diskStorage({ // medio de almacenamiento
     destination: './public/uploads',
@@ -21,4 +23,4 @@ const fileFilter = (res, file, cb) => {
     }
 }
 
-const upload = multer({ storage, fileFilter });
+export const upload = multer({ storage, fileFilter });

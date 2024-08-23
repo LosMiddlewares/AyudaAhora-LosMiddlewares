@@ -10,7 +10,7 @@ userRouter.get('/', authenticateUser, userController.getUsers);
 
 userRouter.get('/:id', authenticateUser, userController.getUserById);
 
-userRouter.post('/', userSchema ,validator, userController.createUser);
+userRouter.post('/', validator, userSchema, userController.createUser);
 
 userRouter.delete('/:id', authenticateUser, userController.deleteUser);
 
