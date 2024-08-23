@@ -26,7 +26,7 @@ function AgregarPost() {
           {error && <p className='error'>{error}</p>}
           {success && <p className='success'>Post creado exitosamente</p>}
           <div id='box-form-add-post'>
-                <div className="caja-inputs">
+                <div className="caja-inputs-post">
                     <label htmlFor="name">Título</label>
                     <input
                         type="text"
@@ -37,18 +37,17 @@ function AgregarPost() {
                         id="titulo"
                     />
                 </div>
-                <div className="caja-inputs">
+                <div className="caja-inputs-post">
                     <label htmlFor="name">Descripción</label>
-                    <input
+                    <textarea
                         type="text"
                         value={description}
                         onChange={setDescription}
-                        placeholder="Descripción"
                         required
                         id="descripcion"
                     />
                 </div>
-                <div className="caja-inputs">
+                <div className="caja-inputs-post">
                     <label htmlFor="name">Meta</label>
                     <input
                         type="number"
@@ -59,7 +58,7 @@ function AgregarPost() {
                         id="meta"
                     />
                 </div>
-                <div className="caja-inputs">
+                <div className="caja-inputs-post">
                     <label htmlFor="name">Imagen</label>
                     <input
                         type="text"
@@ -70,7 +69,7 @@ function AgregarPost() {
                         id="imagen"
                     />
                 </div>
-                <button type="submit">Publicar</button>
+                <button id="boton-publicar" type="submit">Publicar</button>
           </div>
         </form>
         </div>

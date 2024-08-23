@@ -26,10 +26,13 @@ export const usePost = () => {
         try {
             // obtenemos token
             const valueToken = localStorage.getItem('token');
-            const token = valueToken ? JSON.parse(valueToken) : null;
+            console.log("first to:", valueToken);
+            const token = valueToken ? JSON.parse(valueToken).token : null;
+            console.log("token loco:", token);
+            
 
             // id del usuario
-            const userId = localStorage.getItem('userId');
+            //const userId = localStorage.getItem('userId');
 
             const res = await fetch(`${environments.API_URL}/posts`, {
                 method: 'POST',
@@ -62,8 +65,8 @@ export const usePost = () => {
                     duration: 1500
                 })
                 setTimeout(() => {
-                    navigate('/home-abog');
-                }, 2500);
+                    navigate('/posts');
+                }, 1500);
             }    
         
         } catch (error) {
