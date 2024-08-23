@@ -6,15 +6,12 @@ export const donationService = {
 
     async createDonation(donationData, userId) {
         try {
-            // const { donor_id, post_id, amount } = donationData;
             const { post_id, amount } = donationData;
 
             const post = await Post.findByPk(post_id);
             if (!post) {
                 throw new Error("Publicación no encontrada");
             }
-
-            // Crea la donación
             const donation = await Donation.create({
                 donor_id: userId,
                 post_id,
