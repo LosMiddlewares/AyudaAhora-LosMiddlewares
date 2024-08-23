@@ -1,20 +1,10 @@
-import { Users } from "../models/Users.js";
-import { Roles } from "../models/Roles.js";
+import { Users } from "../models/users.js";
 import { Post } from "../models/post.js";
 import { Donation } from "../models/donation.js";
 import { DonationHistory } from "../models/donationHistory.js";
 
 
 export const relations = () => {
-    Roles.hasMany(Users, {
-        foreignKey: 'id_role',
-        sourceKey: 'id'
-    });
-    Users.belongsTo(Roles, {
-        foreignKey: 'id_role',
-        targetKey: 'id',
-    });
-
     // Relaciones
     Users.hasMany(Post, { 
         foreignKey: 'user_id',
