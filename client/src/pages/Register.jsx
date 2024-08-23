@@ -6,11 +6,12 @@ import './css/Register.css';
 export const Register = () => {
     const {
         name, setName,
-        lastName, setLastName,
-        fecha_nac, setfecha_nac,
+        lastname, setlastname,
+        fecha_nac, setFecha_nac,
         email, setEmail,
         password, setPassword,
         confirmPassword, setConfirmPassword,
+        profile_pic, setProfile_pic,
         error, success,
         handleSubmit
     } = useRegister();
@@ -46,8 +47,8 @@ export const Register = () => {
                                 <label htmlFor="lastName">Apellido</label>
                                 <input
                                     type="text"
-                                    value={lastName}
-                                    onChange={setLastName}
+                                    value={lastname}
+                                    onChange={setlastname}
                                     placeholder="Apellido"
                                     required
                                     id="lastName"
@@ -58,7 +59,7 @@ export const Register = () => {
                                 <input
                                     type="date"
                                     value={fecha_nac}
-                                    onChange={setfecha_nac}
+                                    onChange={setFecha_nac}
                                     placeholder="Fecha de Nacimiento"
                                     required
                                     id="birthDate"
@@ -95,6 +96,17 @@ export const Register = () => {
                                     placeholder="Confirmar Contraseña"
                                     required
                                     id="confirmPassword"
+                                />
+                            </div>
+                            <div className="caja-inputs">
+                                <label htmlFor="confirmPassword">Foto</label>
+                                <input
+                                    type="text"
+                                    value={profile_pic}
+                                    onChange={setProfile_pic}
+                                    placeholder="Nombre foto"
+                                    required
+                                    id="profile_pic"
                                 />
                             </div>
                             <div className="caja-boton">

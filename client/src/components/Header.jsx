@@ -2,11 +2,18 @@ import logo from '../assets/AyudaRosa.png'
 import { Link } from 'react-router-dom';
 import './Header.css'
 import { useNavigate } from 'react-router-dom';
+import { useState, useContext, useEffect } from 'react';
+import { UserContext } from '../context/UserContext.jsx';
+import { useLogout } from '../hooks/useLogin.js';
 
 
 function Header() {
 
     const navigate = useNavigate();
+
+    const { userState } = useContext(UserContext);
+    const { isLogged, user } = userState;
+    const { handleLogout } = useLogout();
 
     const scrollToHome = (event) => {
         event.preventDefault();
@@ -40,10 +47,21 @@ function Header() {
                     </Link>
                 </div>
                 <div id='botonera'>
-                    <button onClick={scrollToHome}>Home</button>
-                    <button onClick={scrollToNosotros}>Nosotros</button>
-                    <button onClick={scrollContacto}>Contacto</button>
-                    <button onClick={() => navigate('/login')}>Ingresar</button>
+                {isLogged ?(
+                    <>
+                        <button onClick={() => navigate('/posts')}>Posts</button>
+                        <button onClick={() => navigate('/addPost')}>Crear Post</button>
+                        <button onClick={() => navigate('/')}>{user.user.name}</button>
+                        <button onClick={handleLogout}>Cerrar Sesión</button>
+                    </>
+                ):(
+                    <>
+                        <button onClick={scrollToHome}>Home</button>
+                        <button onClick={scrollToNosotros}>Nosotros</button>
+                        <button onClick={scrollContacto}>Contacto</button>
+                        <button onClick={() => navigate('/login')}>Ingresar</button>
+                    </>
+                )}
                 </div>
                 
             </div>    

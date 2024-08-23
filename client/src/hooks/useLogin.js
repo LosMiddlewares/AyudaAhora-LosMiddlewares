@@ -4,6 +4,7 @@ import { environments } from '../config/environments.js';
 import { UserContext } from '../context/UserContext.jsx';
 import { type } from '../types/type.js';
 import Swal from 'sweetalert2';
+import { toast } from 'sonner';
 
 export function useLogin() {
 
@@ -19,7 +20,7 @@ export function useLogin() {
         e.preventDefault();
 
         try {
-            const res = await fetch(`${environments.API_URL}/auth/login`, {
+            const res = await fetch(`${environments.API_URL}/users/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -40,24 +41,23 @@ export function useLogin() {
                 const data = await res.json();
 
                 localStorage.setItem('token', JSON.stringify(data.token));
-                localStorage.setItem('userId', data.id);
+                localStorage.setItem('userId', data.user.id);
                 localStorage.setItem('user', JSON.stringify(data)); // Guarda el usuario completo
 
                 setUserState({ type: type.LOGIN, payload: { user: data } });
 
-                Swal.fire({
-                    title: 'Login correcto',
-                    text: 'Bienvenido',
-                    icon: 'success'
-                });
+                toast.success('Login correcto', {
+                    description: 'Bienvenido',
+                    duration: 1500
+                })
                 setTimeout(() => {
-                    navigate('/');
+                    navigate('/posts');
                 }, 1000);
                 
             }
         } catch (error) {
             console.error(error);
-            setError('La contraseña o el nombre de usuario es incorrecto');
+            setError('La contraseña o el email es incorrecto');
         }
     };
 
@@ -77,8 +77,6 @@ export function useLogout() {
 
     const { setUserState, isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
-    
-
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
@@ -92,8 +90,12 @@ export function useLogout() {
 
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+        localStorage.removeItem('userId');
 
         setUserState({ type: type.LOGOUT });
+        toast.success('Cerraste sesión correctamente', {
+            duration: 1500
+        })
 
         setTimeout(() => {
             navigate('/login')

@@ -8,19 +8,21 @@ export const useRegister = () => {
     const navigate = useNavigate();
 
     const [name, setName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [fecha_nac, setFecha_nac] = useState("");
+    const [lastname, setlastname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [fecha_nac, setFecha_nac] = useState("");
+    const [profile_pic, setProfile_pic] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(false);
 
     const handleNameChange = (e) => setName(e.target.value);
-    const handleLastNameChange = (e) => setLastName(e.target.value);
-    const handleFecha_nac = (e) => setFecha_nac(e.target.value);
+    const handleLastNameChange = (e) => setlastname(e.target.value);
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
+    const handleFecha_nac = (e) => setFecha_nac(e.target.value);
+    const handleProfile_pic = (e) => setProfile_pic(e.target.value);
     const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
 
     const handleSubmit = async (e) => {
@@ -33,25 +35,19 @@ export const useRegister = () => {
 
         try {
             // obtenemos token
-            const valueToken = localStorage.getItem('token');
-            const token = valueToken ? JSON.parse(valueToken) : null;
 
-            // id del usuario
-            const userId = localStorage.getItem('userId');
-
-            const res = await fetch(`${environments.API_URL}/abog/editar-perfil/${userId}`, {
-                method: 'PUT',
+            const res = await fetch(`${environments.API_URL}/users`, {
+                method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     name,
-                    lastName,
-                    phoneNum,
+                    lastname,
                     fecha_nac,
                     email,
                     password,
+                    profile_pic
                 })
             });
             if (!res.ok) {
@@ -63,10 +59,8 @@ export const useRegister = () => {
                 });
             } else {
                 const data = await res.json();
+                console.log(data);
                 
-                localStorage.setItem('user', JSON.stringify(data)); // Guarda el usuario completo
-
-                //dispatch({ type: type.LOGIN, payload: { user: data } });
 
                 setSuccess(true);
                 Swal.fire({
@@ -74,7 +68,7 @@ export const useRegister = () => {
                     icon: 'success',
                 });
                 setTimeout(() => {
-                    navigate('/home-abog');
+                    navigate('/login');
                 }, 2500);
             }    
         
@@ -90,11 +84,12 @@ export const useRegister = () => {
 
     return {
         name, setName: handleNameChange,
-        lastName, setLastName: handleLastNameChange,
+        lastname, setlastname: handleLastNameChange,
         fecha_nac, setFecha_nac: handleFecha_nac,
         email, setEmail: handleEmailChange,
         password, setPassword: handlePasswordChange,
         confirmPassword, setConfirmPassword: handleConfirmPasswordChange,
+        profile_pic, setProfile_pic: handleProfile_pic,
         error, success,
         handleSubmit,
     };

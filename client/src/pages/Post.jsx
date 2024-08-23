@@ -80,4 +80,4 @@ function Posts() {
     </>
   )
 }
-export default Posts
+  export default Posts
