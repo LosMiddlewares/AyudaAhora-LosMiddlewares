@@ -4,3 +4,21 @@
 #naranja bordes #FCCC90
 #verde #A2CC98
 */
+#box-all-home {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #191F2F;
+}
+#pri-espacio-necesario{
+    width: 100%;
+    height: 6rem;
+}
+
+#espacio-necesario{
+    width: 100%;
+    height: 5rem;
+}
