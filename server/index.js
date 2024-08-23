@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import path from 'path';
 import 'dotenv/config';
 
 import getFileDirName from './src/utils/fileDirName.js';
